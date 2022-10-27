@@ -18,7 +18,11 @@
   @else
     <x-navbar />
   @endif
-    {{ $slot }}
+
+  <x-shared.toast />
+
+  {{ $slot }}
+
 </body>
 
 </html>

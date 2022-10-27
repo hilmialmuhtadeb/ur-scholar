@@ -36,7 +36,7 @@ class UserPostRequest extends FormRequest
             'name.required' => 'Nama tidak boleh kosong ya. isi dulu',
             'email.required' => 'Emailnya jangan dikosongkan ya. yuk isi',
             'email.email' => 'Emailnya harus email beneran nih',
-            'email.unique' => 'Yah, email ini udah dipakai. ganti yang lain',
+            'email.unique' => 'Yah, email ini udah dipakai. ganti yang lain yaa',
             'password.required' => 'Passwordnya diisi dong',
         ];
     }
