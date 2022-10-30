@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ScholarshipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,11 @@ Route::middleware('guest')->group(function() {
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+Route::middleware('auth')->group(function() {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+});
+
+Route::get('/scholarship', [ScholarshipController::class, 'index'])->name('scholarship.index');
+// Route::get('/scholarship/{id}', [ScholarshipController::class, 'show'])->name('scholarship.show');
+Route::get('/scholarship/create', [ScholarshipController::class, 'create'])->name('scholarship.create');
+Route::post('/scholarship', [ScholarshipController::class, 'store'])->name('scholarship.store');
