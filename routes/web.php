@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ScholarshipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages/home/index');
+})->name('home');
+
+Route::middleware('guest')->group(function() {
+    Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+    
+    Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
 
-Route::get('/register', function () {
-    return view('pages/auth/register');
+Route::middleware('auth')->group(function() {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
-Route::get('/login', function () {
-    return view('pages/auth/login');
-});
+Route::get('/scholarship', [ScholarshipController::class, 'index'])->name('scholarship.index');
+Route::get('/scholarship/create', [ScholarshipController::class, 'create'])->name('scholarship.create');
+Route::post('/scholarship', [ScholarshipController::class, 'store'])->name('scholarship.store');
+Route::get('/scholarship/{slug}', [ScholarshipController::class, 'show'])->name('scholarship.show');
