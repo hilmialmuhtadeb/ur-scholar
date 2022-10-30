@@ -12,6 +12,7 @@ class Scholarship extends Model
         'user_id',
         'category_id',
         'title',
+        'slug',
         'description',
         'image',
         'is_archived',

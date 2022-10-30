@@ -17,6 +17,7 @@ class ScholarshipSeeder extends Seeder
         $scholarships = [
             [
                 'title' => 'Beasiswa Pertamina 2022',
+                'slug' => 'beasiswa-pertamina-2022',
                 'description' => 'Beasiswa Pertamina 2022 adalah beasiswa yang diberikan oleh PT Pertamina kepada mahasiswa/i yang memiliki prestasi akademik yang baik dan memiliki minat untuk mengembangkan diri di bidang teknologi.',
                 'image' => 'pertamina.jpg',
                 'user_id' => 1,
@@ -26,6 +27,7 @@ class ScholarshipSeeder extends Seeder
             ],
             [
                 'title' => 'Beasiswa IDCamp 2022',
+                'slug' => 'beasiswa-idcamp-2022',
                 'description' => 'Beasiswa IDCamp 2022 diselenggarakan oleh Indonsat Oreedoo dan bekerja sama dengan Dicoding untuk mengembangkan kemampuan para pelajar di bidang teknologi.',
                 'image' => 'idcamp.jpg',
                 'user_id' => 1,
@@ -35,6 +37,7 @@ class ScholarshipSeeder extends Seeder
             ],
             [
                 'title' => 'Pelatihan Digital Marketing',
+                'slug' => 'pelatihan-digital-marketing',
                 'description' => 'Pelatihan Digital Marketing diselenggarakan oleh Dicoding untuk mengembangkan kemampuan para pelajar di bidang teknologi.',
                 'image' => 'default.jpg',
                 'user_id' => 1,

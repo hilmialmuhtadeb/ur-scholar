@@ -9,3 +9,10 @@ body {
   height: 16rem;
   object-fit: cover;
 }
+
+.s-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('title');
+            $table->string('slug');
             $table->string('description');
             $table->string('image')->default('default.png');
             $table->boolean('is_archived')->default(false);

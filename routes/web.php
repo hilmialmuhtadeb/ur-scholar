@@ -33,6 +33,6 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('/scholarship', [ScholarshipController::class, 'index'])->name('scholarship.index');
-// Route::get('/scholarship/{id}', [ScholarshipController::class, 'show'])->name('scholarship.show');
 Route::get('/scholarship/create', [ScholarshipController::class, 'create'])->name('scholarship.create');
 Route::post('/scholarship', [ScholarshipController::class, 'store'])->name('scholarship.store');
+Route::get('/scholarship/{slug}', [ScholarshipController::class, 'show'])->name('scholarship.show');
