@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/scholarship">Beasiswa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/scholarship">Beasiswa</a>
+          <a class="nav-link" href="/about">Tentang</a>
         </li>
         <li class="nav-item">
           <span class="nav-link mx-3"> | </span>

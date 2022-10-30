@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="d-flex justify-content-between">
-      <h4 class="my-4">Semua Beasiswa</h4>
+      <h4 class="my-5">Semua Beasiswa</h4>
       <div class="d-flex align-items-center">
         <a href={{ route('scholarship.create') }}>
           <button class="btn btn-primary">+ Info Beasiswa</button>
@@ -22,8 +22,13 @@
             <div class="card">
               <img src={{ asset('/storage/images/scholarship/' . $s->image) }} class="s-card-image" alt="poster beasiswa">
               <div class="card-body">
+                <small><a href="">{{ $s->category->name }}</a> &middot; {{ $s->author->name }}</small>
                 <h5 class="card-title">{{ $s->title }}</h5>
-                <p class="card-text">{!! $s->description !!}</p>
+                <div class="my-4">
+                  <p class="fw-bold m-0 text-secondary">Pendaftaran</p>
+                  {{ \App\Utils\Tanggal::tanggalIndo($s->start_date) }} - {{ \App\Utils\Tanggal::tanggalIndo($s->end_date) }}
+                </div>
+                <a href="">Lihat Detail</a>
               </div>
             </div>
           </div>
