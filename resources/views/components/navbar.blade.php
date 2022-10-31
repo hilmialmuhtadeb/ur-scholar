@@ -36,7 +36,7 @@
         @endauth
         @guest
           <li class="nav-item">
-            <a class="nav-link bg-primary text-white rounded" href={{ route('login.index') }}>Masuk</a>
+            <a class="nav-link bg-primary px-3 text-white rounded" href={{ route('login.index') }}>Masuk</a>
           </li>
           <li class="nav-item ms-md-2">
             <a class="nav-link" href={{ route('register.index') }}>Daftar</a>

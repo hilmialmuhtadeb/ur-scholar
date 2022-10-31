@@ -5,6 +5,10 @@ body {
   font-family: 'Roboto';
 }
 
+.bg-footer {
+  background-color: #ebebeb;
+}
+
 .s-card-image {
   height: 16rem;
   object-fit: cover;
@@ -15,4 +19,9 @@ body {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+}
+
+.s-detail-image {
+  height: 24rem;
+  object-fit: cover;
 }

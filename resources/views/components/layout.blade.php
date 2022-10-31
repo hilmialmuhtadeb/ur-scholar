@@ -26,6 +26,8 @@
   {{ $slot }}
 
   @yield('ck-editor')
+
+  <x-footer />
 </body>
 
 </html>
