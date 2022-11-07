@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
+            $table->text('description');
             $table->string('image')->default('default.png');
             $table->boolean('is_archived')->default(false);
             $table->date('start_date')->nullable();

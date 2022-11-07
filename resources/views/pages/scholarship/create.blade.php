@@ -26,7 +26,7 @@
           </div>
           <div class="mb-3">
             <label for="editor" class="form-label">Deskripsi</label>
-            <textarea name="description" id="editor" class="form-control" rows="5">
+            <textarea name="description" id="editor" class="form-control">
               {{ old('description') }}
             </textarea>
             @if ($errors->has("description"))
