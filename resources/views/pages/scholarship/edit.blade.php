@@ -1,7 +1,7 @@
 <x-layout>
   <div class="container my-5">
-    <h4 class="mb-4">Buat Informasi Beasiswa Baru</h4>
-    <x-shared.scholarshipform :categories="$categories" />
+    <h4 class="mb-4">Ubah Informasi Beasiswa</h4>
+    <x-shared.scholarshipform :categories="$categories" :scholarship="$scholarship" />
   </div>
   
   @section('ck-editor')

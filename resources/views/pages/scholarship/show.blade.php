@@ -6,12 +6,16 @@
       <div class="d-flex justify-content-between align-items-center">
         <p><span class="fw-bold">{{ $scholarship->author->name }}</span> &middot; {{ \App\Utils\Tanggal::tanggalIndo($scholarship->created_at->format('Y-m-d')) }}</p>
         <div class="dropdown">
-          <p class="p-2 menu-dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">⋮</p>
+          <p class="py-2 px-4 fw-bold fs-5 menu-dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">⋮</p>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="#">Simpan</a></li>
             @if (Auth::user()->id === $scholarship->author->id)
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item text-danger" href="#">Hapus</a></li>
+            <li><a class="dropdown-item" href={{ route('scholarship.edit', $scholarship->slug) }}>Edit</a></li>
+            <form action={{ route('scholarship.delete', $scholarship->slug) }} method="post">
+              @csrf
+              @method('delete')
+              <li><button class="dropdown-item text-danger" type="submit" onclick="return confirm('Are you sure?')">Hapus</button></li>
+            </form>
             @endif
           </ul>
         </div>

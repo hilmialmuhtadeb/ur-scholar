@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('description');
-            $table->string('image')->default('default.png');
+            $table->string('image')->default('default.jpg');
             $table->boolean('is_archived')->default(false);
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();

@@ -36,3 +36,6 @@ Route::get('/scholarship', [ScholarshipController::class, 'index'])->name('schol
 Route::get('/scholarship/create', [ScholarshipController::class, 'create'])->name('scholarship.create');
 Route::post('/scholarship', [ScholarshipController::class, 'store'])->name('scholarship.store');
 Route::get('/scholarship/{scholarship:slug}', [ScholarshipController::class, 'show'])->name('scholarship.show');
+Route::get('/scholarship/{scholarship:slug}/edit', [ScholarshipController::class, 'edit'])->name('scholarship.edit');
+Route::post('/scholarship/{scholarship:slug}/update', [ScholarshipController::class, 'update'])->name('scholarship.update');
+Route::delete('/scholarship/{scholarship:slug}/delete', [ScholarshipController::class, 'delete'])->name('scholarship.delete');
