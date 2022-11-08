@@ -5,6 +5,14 @@ body {
   font-family: 'Roboto';
 }
 
+.bg-footer {
+  background-color: #ebebeb;
+}
+
+.alert-box {
+  z-index: 10;
+}
+
 .s-card-image {
   height: 16rem;
   object-fit: cover;
@@ -15,4 +23,32 @@ body {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+}
+
+.s-detail-image {
+  height: 24rem;
+  object-fit: cover;
+}
+
+blockquote p { 
+  quotes: '\201c' '\201d'; 
+  font-style: italic;
+}
+blockquote p:before {
+  content: open-quote; 
+}
+blockquote p:after  {
+  content: close-quote; 
+}
+
+.menu-dropdown-button:hover {
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
