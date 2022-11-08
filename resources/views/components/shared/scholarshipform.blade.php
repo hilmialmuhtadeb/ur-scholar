@@ -17,7 +17,7 @@
       </div>
       <div class="mb-3">
         <label for="title" class="form-label">Judul</label>
-        <input type="text" name="title" class="form-control" id="title" value="{{ $scholarship->title }}">
+        <input type="text" name="title" class="form-control" id="title" value="{{ (isset($scholarship)) ? $scholarship->title : old('image') }}">
         @if ($errors->has("title"))
           <div class="text-danger">
             <small>{{ $errors->first("title") }}</small>
@@ -27,7 +27,7 @@
       <div class="mb-3">
         <label for="editor" class="form-label">Deskripsi</label>
         <textarea name="description" id="editor" class="form-control">
-          {!! $scholarship->description !!}
+          {!! (isset($scholarship)) ? $scholarship->description : '' !!}
         </textarea>
         @if ($errors->has("description"))
           <div class="text-danger">
@@ -37,18 +37,18 @@
       </div>
       <div class="mb-3 col-md-4">
         <label for="start_date" class="form-label">Tanggal Buka Pendaftaran</label>
-        <input type="date" name="start_date" class="form-control" id="start_date" value={{ $scholarship->start_date }}>
+        <input type="date" name="start_date" class="form-control" id="start_date" value={!! (isset($scholarship)) ? $scholarship->start_date : '' !!}>
       </div>
       <div class="mb-3 col-md-4">
         <label for="end_date" class="form-label">Batas Akhir Pendaftaran</label>
-        <input type="date" name="end_date" class="form-control" id="end_date" value={{ $scholarship->end_date }}>
+        <input type="date" name="end_date" class="form-control" id="end_date" value={!! (isset($scholarship)) ? $scholarship->end_date : '' !!}
       </div>
       <div class="mb-3 col-md-4">
         <label for="category_id" class="form-label">Kategori</label>
         <select name="category_id" id="category_id" class="form-select">
-          <option value="">Pilih Kategori</option>
+          <option value="1">Pilih Kategori</option>
           @foreach ($categories as $c)
-            <option value={{ $c->id }} {{ ($scholarship->category_id === $c->id) ? 'selected' : '' }}>{{ $c->name }}</option>
+            <option value={{ $c->id }} {{ isset($scholarship) ? (($scholarship->category_id === $c->id) ? 'selected' : '') : '' }}>{{ $c->name }}</option>
           @endforeach
         </select>
       </div>
