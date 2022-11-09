@@ -1,8 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-primary">
   <div class="container">
-  <a class="navbar-brand p-2" href="#">
-  <img src={{ asset('svg/Brandu.png') }} alt="Brand image" style="height: 50px;"> UrScholar
-</a>
+  <img src={{ asset('svg/Group_5.png') }} alt="Brand image" style="height: 30px;">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
