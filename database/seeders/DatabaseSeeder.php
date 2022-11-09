@@ -14,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory()->create([
+            'name' => 'Syahrul Ramadhan',
+            'email' => 'syahrul@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Hilmi Almuhtade',
+            'email' => 'hilmi@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            CategorySeeder::class,
+            ScholarshipSeeder::class,
+        ]);
     }
 }
