@@ -2,6 +2,7 @@
   <div class="col-md-8">
     @if (isset($scholarship))
     <form action={{ route('scholarship.update', $scholarship->slug) }} method="POST" enctype="multipart/form-data">
+      @method('patch')
     @else
     <form action={{ route('scholarship.store') }} method="POST" enctype="multipart/form-data">
     @endif
