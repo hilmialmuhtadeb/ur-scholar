@@ -28,6 +28,6 @@ class RegisterController extends Controller
             return redirect(route('home'))->with('success', 'Yey, akun berhasil dibuat');
         }
         
-        return redirect(route('login.index'))->with('success', 'Yey, akun berhasil dibuat');
+        return redirect(route('login'))->with('success', 'Yey, akun berhasil dibuat');
     }
 }
