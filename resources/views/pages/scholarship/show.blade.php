@@ -1,4 +1,8 @@
 <x-layout>
+  <x-slot name="title">
+      {{ $scholarship->title }}
+  </x-slot>
+
   <div class="w-50 mx-auto my-5">
     <h1 class="text-center">{{ $scholarship->title }}</h1>
     <div class="mt-5 mb-3 mx-auto">
@@ -11,11 +15,17 @@
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="#">Simpan</a></li>
             @if (Auth::user()->id === $scholarship->author->id)
+            <form action={{ route('scholarship.archive', $scholarship->slug) }} method="post">
+              @csrf
+              @method('PATCH')
+              <input type="hidden" name="status" value={{ $scholarship->is_archived }}>
+              <li><button class="dropdown-item" type="submit" onclick="return confirm('Apa anda yakin?')">{{ $scholarship->is_archived ? "Tampilkan" : "Arsip" }}</button></li>
+            </form>
             <li><a class="dropdown-item" href={{ route('scholarship.edit', $scholarship->slug) }}>Edit</a></li>
             <form action={{ route('scholarship.destroy', $scholarship->slug) }} method="post">
               @csrf
               @method('delete')
-              <li><button class="dropdown-item text-danger" type="submit" onclick="return confirm('Are you sure?')">Hapus</button></li>
+              <li><button class="dropdown-item text-danger" type="submit" onclick="return confirm('Apa anda yakin?')">Hapus</button></li>
             </form>
             @endif
           </ul>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ScholarshipController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,8 +40,12 @@ Route::middleware('auth')->prefix('/scholarship')->group(function() {
     Route::get('/create', [ScholarshipController::class, 'create'])->name('scholarship.create');
     Route::get('/{scholarship}/edit', [ScholarshipController::class, 'edit'])->name('scholarship.edit');
     Route::patch('/{scholarship}/update', [ScholarshipController::class, 'update'])->name('scholarship.update');
+    Route::patch('/{scholarship}/archive', [ScholarshipController::class, 'archive'])->name('scholarship.archive');
     Route::delete('/{scholarship}/delete', [ScholarshipController::class, 'delete'])->name('scholarship.destroy');
 });
 Route::get('/scholarship/{scholarship}', [ScholarshipController::class, 'show'])->name('scholarship.show');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+Route::get('/profile/{user}', [UserController::class, 'show'])->name('user.show');
+Route::patch('/profile/{user}/update', [UserController::class, 'update'])->name('user.update');
