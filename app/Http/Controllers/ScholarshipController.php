@@ -13,8 +13,9 @@ use Illuminate\Support\Str;
 class ScholarshipController extends Controller
 {
     public function index() {
+        $categories = Category::all();
         $scholarships = Scholarship::where('is_archived', false)->get();
-        return view('pages.scholarship.index', compact('scholarships'));
+        return view('pages.scholarship.index', compact('scholarships', 'categories'));
     }
 
     public function create() {

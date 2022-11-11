@@ -2,11 +2,36 @@
   <div class="container">
 
     <div class="d-flex justify-content-between">
-      <h4 class="mt-5 mb-4">Semua Beasiswa</h4>
+      <h4 class="mt-5 mb-3">Semua Beasiswa</h4>
       <div class="d-flex align-items-center">
         <a href={{ route('scholarship.create') }}>
           <button class="btn btn-primary">+ Info Beasiswa</button>
         </a>
+      </div>
+    </div>
+
+    <div class="d-flex mb-4">
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Kategori
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          @foreach ($categories as $category)
+            <li><a class="dropdown-item" href={{ route('category.show', $category) }}>{{ $category->name }}</a></li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="dropdown ms-2">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Beasiswa Penuh</a></li>
+          <li><a class="dropdown-item" href="#">Beasiswa Paruh Waktu</a></li>
+          <li><a class="dropdown-item" href="#">Beasiswa S1</a></li>
+          <li><a class="dropdown-item" href="#">Beasiswa S2</a></li>
+          <li><a class="dropdown-item" href="#">Beasiswa S3</a></li>
+        </ul>
       </div>
     </div>
 
@@ -19,18 +44,7 @@
       <div class="row">
         @foreach ($scholarships as $s)
           <div class="col-md-4 my-3">
-            <div class="card">
-              <img src={{ asset('/storage/images/scholarship/' . $s->image) }} class="s-card-image" alt="poster beasiswa">
-              <div class="card-body">
-                <small><a href="">{{ $s->category->name }}</a> &middot; {{ $s->author->name }}</small>
-                <h5 class="card-title s-card-title">{{ $s->title }}</h5>
-                <div class="my-4">
-                  <p class="fw-bold m-0 text-secondary">Pendaftaran</p>
-                  {{ \App\Utils\Tanggal::tanggalIndo($s->start_date) }} - {{ \App\Utils\Tanggal::tanggalIndo($s->end_date) }}
-                </div>
-                <a href={{ route('scholarship.show', $s->slug) }}>Lihat Detail</a>
-              </div>
-            </div>
+            <x-shared.scholarshipcard :s="$s" />
           </div>
         @endforeach
       </div>
