@@ -13,7 +13,11 @@
           @auth
           <p class="py-2 px-4 fw-bold fs-5 menu-dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">⋮</p>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Simpan</a></li>
+            <form action={{ route('bookmark.store', $scholarship->slug) }} method="post">
+              @csrf
+              @method('POST')
+              <li><button class="dropdown-item" type="submit">Simpan</button></li>
+            </form>
             @if (Auth::user()->id === $scholarship->author->id)
             <form action={{ route('scholarship.archive', $scholarship->slug) }} method="post">
               @csrf
