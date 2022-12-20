@@ -13,8 +13,9 @@ use Illuminate\Support\Str;
 class ScholarshipController extends Controller
 {
     public function index() {
-        $scholarships = Scholarship::all();
-        return view('pages.scholarship.index', compact('scholarships'));
+        $categories = Category::all();
+        $scholarships = Scholarship::where('is_archived', false)->get();
+        return view('pages.scholarship.index', compact('scholarships', 'categories'));
     }
 
     public function create() {
@@ -60,6 +61,14 @@ class ScholarshipController extends Controller
         }
         $scholarship->update($scholarshipData);
         return redirect(route('scholarship.index'))->with('success', 'Yey, beasiswa berhasil diupdate');
+    }
+
+    public function archive (Request $request, Scholarship $scholarship) {
+        $status = $request->status;
+        $scholarship->update([
+            'is_archived' => !$status
+        ]);
+        return redirect()->back()->with('success', 'Yey, Aksi berhasil');
     }
 
     public function delete (Scholarship $scholarship) {

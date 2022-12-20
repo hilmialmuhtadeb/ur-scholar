@@ -24,7 +24,7 @@
               {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href={{ route('user.show', Auth::user()->id) }}>Profil</a></li>
               <li><a class="dropdown-item" href="#">Beasiswa disimpan</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
