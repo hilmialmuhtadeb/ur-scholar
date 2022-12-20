@@ -21,18 +21,6 @@
           @endforeach
         </ul>
       </div>
-      <div class="dropdown ms-2">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Filter
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Beasiswa Penuh</a></li>
-          <li><a class="dropdown-item" href="#">Beasiswa Paruh Waktu</a></li>
-          <li><a class="dropdown-item" href="#">Beasiswa S1</a></li>
-          <li><a class="dropdown-item" href="#">Beasiswa S2</a></li>
-          <li><a class="dropdown-item" href="#">Beasiswa S3</a></li>
-        </ul>
-      </div>
     </div>
 
     @if(count($scholarships) < 1)
