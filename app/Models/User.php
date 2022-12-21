@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function scholarships() {
         return $this->hasMany(Scholarship::class);
     }
+
+    public function bookmarks() {
+        return $this->hasMany(bookmark::class);
+    }
 }

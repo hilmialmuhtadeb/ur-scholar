@@ -31,4 +31,8 @@ class Scholarship extends Model
     public function author() {
         return $this->belongsTo(User::class, 'user_id');
     }                                
+
+    public function bookmarks() {
+        return $this->hasMany(bookmark::class);
+    }
 }

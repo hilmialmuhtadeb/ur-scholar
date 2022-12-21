@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\UserController;
@@ -34,6 +35,7 @@ Route::middleware('guest')->group(function() {
 });
 
 Route::middleware('auth')->group(function() {
+    Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmark.index');
     Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
@@ -52,3 +54,6 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::get('/profile/{user}', [UserController::class, 'show'])->name('user.show');
 Route::patch('/profile/{user}/update', [UserController::class, 'update'])->name('user.update');
+
+Route::post('/bookmark/{slug}', [BookmarkController::class, 'store'])->name('bookmark.store');
+Route::delete('/bookmark/{slug}', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');

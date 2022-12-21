@@ -25,7 +25,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href={{ route('user.show', Auth::user()->id) }}>Profil</a></li>
-              <li><a class="dropdown-item" href="#">Beasiswa disimpan</a></li>
+              <li><a class="dropdown-item" href={{ route('bookmark.index') }}>Beasiswa disimpan</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <form action={{ route('auth.logout') }} method="post">
